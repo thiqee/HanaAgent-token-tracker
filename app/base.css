@@ -1,0 +1,141 @@
+/* ===== base.css — 页面骨架 ===== */
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  padding:20px;max-width:1200px;margin:0 auto;min-height:100vh
+}
+
+/* ── 头部 ── */
+.hdr{display:grid;grid-template-columns:1fr auto;align-items:end;margin-bottom:20px;padding-bottom:12px}
+.hdr-left{display:flex;align-items:baseline;gap:16px}
+.hdr-right{display:flex;align-items:flex-end;gap:8px;justify-self:end}
+.hdr-title{font-size:24px;font-weight:700;letter-spacing:.3px;white-space:nowrap}
+#lu{font-size:13px;white-space:nowrap}
+.rt{display:flex;align-items:center;gap:8px;font-size:13px}
+.rt .btn,.rt .cs{flex-shrink:0;white-space:nowrap}
+
+@media(max-width:700px){
+  .hdr{display:flex;justify-content:space-between;align-items:flex-start}
+  .hdr-left{flex-direction:column;align-items:flex-start;gap:2px}
+  .hdr-right{flex-direction:column;align-items:flex-end;gap:2px}
+  .hdr-right .rt{order:0}
+  .hdr-right #lu{order:1}
+  #bal{margin-left:0}
+}
+
+/* ── 按钮 ── */
+.btn{padding:4px 10px;cursor:pointer;font-size:13px;border-radius:4px}
+
+/* ── 筛选栏 ── */
+.flt{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}
+.flt::after{content:'';display:block;width:100%;height:1px;margin-top:12px}
+
+/* ── 筛选按钮 ── */
+.fb{background:none;border:none;padding:4px 12px;cursor:pointer;font-size:13px}
+
+/* ── 指标卡片 ── */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:24px}
+.cd{padding:12px;border-radius:4px}
+.cd .cl{font-size:11px;margin-bottom:2px;letter-spacing:.5px}
+.cd .cv{font-size:28px;font-weight:700;line-height:1.2}
+
+/* ── 图表容器 ── */
+.cx{margin-bottom:24px;padding:16px;border-radius:4px}
+.ct{font-size:13px;font-weight:500;margin-bottom:12px;letter-spacing:.4px}
+.d2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+canvas{max-width:100%;max-height:320px}
+
+/* ── 对话列表 ── */
+.cg2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;overflow-x:hidden}
+.cg2>*{min-width:0;overflow-x:hidden}
+.cv-list{max-height:420px;overflow-y:auto;overflow-x:hidden;font-size:12px}
+.cv-empty{padding:20px;text-align:center}
+.cv-it{padding:8px 0;cursor:pointer;overflow:hidden}
+.cv-it:hover{margin:0 -8px;padding:8px;border-radius:3px}
+.cv-qt{margin-bottom:2px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;max-width:66%}
+.cv-meta{font-size:11px}
+.cv-tb{display:inline-block;font-size:10px;margin-left:4px}
+
+/* ── 弹窗 ── */
+.modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center}
+.modal-bg{position:absolute;inset:0}
+.modal-box{position:relative;border-radius:8px;max-width:600px;width:90%;max-height:80vh;display:flex;flex-direction:column}
+.modal-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+.modal-hdr .btn{font-size:16px;padding:2px 8px}
+.modal-tit{font-size:14px;font-weight:600}
+.modal-body{padding:16px;overflow-y:auto;flex:1}
+.cv-dt-hdr{font-size:12px;margin-bottom:12px}
+.cv-dt-msg{padding:10px 12px;border-radius:6px;margin-bottom:10px;font-size:13px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.cv-pre{font-size:11px;margin:6px 0 0;padding:6px;border-radius:3px;overflow-x:auto}
+.cv-dt-sum{padding:10px 0;font-size:12px}
+
+/* ── 自定义下拉 ── */
+.cs{position:relative;display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:13px;user-select:none}
+.cs-arw{font-size:12px;transition:transform .2s;line-height:1}
+.cs.open .cs-arw{transform:rotate(180deg)}
+.cs-list{position:absolute;top:100%;left:0;z-index:50;min-width:100%;max-height:220px;overflow-y:auto;border-radius:4px;margin-top:2px;display:none}
+.cs.open .cs-list{display:block}
+.cs-opt{padding:5px 10px;font-size:12px;cursor:pointer;white-space:nowrap}
+.cs-opt.sel{font-weight:600}
+
+/* 固定下拉宽度 */
+
+
+/* ── 日期输入 ── */
+.fi{border-radius:4px;padding:4px 22px 4px 8px;font-size:13px;outline:none;width:120px;cursor:pointer;font-family:inherit}
+.fi::-webkit-calendar-picker-indicator{display:none}
+.fi-wrap{position:relative;display:inline-flex;align-items:center}
+.fi-wrap::after{content:"";position:absolute;right:5px;width:13px;height:13px;pointer-events:none;opacity:.4;-webkit-mask:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik03MTAuODQ1Mjc5IDI5MC41MDAyNTdjMjQuMjY1NjYgMCA0NS4zNDU3NjgtMTkuNjkzNTI4IDQ1LjM0NTc2OC00NC4wMDIxNjdMNzU2LjE5MTA0NiA0Ni41Mjg3MWMwLTI0LjMwODYzOS0yMS4wODExMzEtNDQuMDIzNjU2LTQ1LjM0NTc2OC00NC4wMjM2NTYtMjQuMjg2MTI2IDAtNDMuOTU4MTY0IDE5LjcxNTAxNy00My45NTgxNjQgNDQuMDIzNjU2bDAgMTk5Ljk2OTM4MUM2NjYuODg3MTE1IDI3MC44MDY3MjkgNjg2LjU1OTE1MyAyOTAuNTAwMjU3IDcxMC44NDUyNzkgMjkwLjUwMDI1N3pNNjIzLjA3OTM3NiAxMTMuMzQzNDQxIDQwMC41MTQzNzEgMTEzLjM0MzQ0MWwwIDY2LjQ2ODg1NCAyMjIuNTY1MDA1IDBMNjIzLjA3OTM3NiAxMTMuMzQzNDQxek04ODMuNDc0OTg4IDExMy4zNDM0NDFsLTgyLjcxNzkzMyAwIDAgNjYuMTAwNDY0IDg1Ljg4MTk5NiAwYzI1LjI2MTMzNyAwIDQ2LjU3OTg3NSAyMS4zNjE1MTcgNDYuNTc5ODc1IDQ2LjY0NTM2NmwwIDE1My44MjMzODhMOTAuMzk4MzU4IDM3OS45MTI2NTlsMC0xNTMuODIzMzg4YzAtMjUuMjgyODI2IDIxLjMxODUzOC00Ni42NDUzNjYgNDYuNTc5ODc1LTQ2LjY0NTM2Nmw4Ni40NDQ4MTQgMEwyMjMuNDIzMDQ3IDExMy4zNDM0NDFsLTgyLjU4Njk1IDBjLTY0LjA0MjU5NSAwLTExNi40Mjg3MDkgNTIuNDczMDk1LTExNi40Mjg3MDkgMTE2LjYyNDE2MWwwIDY3Ni4zNDI5NzVjMCA2NC4xMzA1OTkgNTAuNDU3MTgyIDExNi42MDE2NDggMTE0LjQ5OTc3NyAxMTYuNjAxNjQ4TDg4My40NzQ5ODggMTAyMi45MTIyMjZjNjQuMDE5MDU5IDAgMTE2LjQyNzY4Ni01Mi40NzEwNDkgMTE2LjQyNzY4Ni0xMTYuNjAxNjQ4TDk5OS45MDI2NzQgMjI5Ljk2NzYwMkM5OTkuOTAyNjc0IDE2NS44MTY1MzYgOTQ3LjQ5MzAyNCAxMTMuMzQzNDQxIDg4My40NzQ5ODggMTEzLjM0MzQ0MXpNOTMzLjIxNzkwMiA5MDkuNzM0NTZjMCAyNS4yODI4MjYtMjEuMzE4NTM4IDQ2LjY0NDM0My00Ni41Nzk4NzUgNDYuNjQ0MzQzTDEzNi45NzgyMzMgOTU2LjM3ODkwM2MtMjUuMjYxMzM3IDAtNDYuNTc5ODc1LTIxLjM2MTUxNy00Ni41Nzk4NzUtNDYuNjQ0MzQzTDkwLjM5ODM1OCA0NDYuMTQzMDgzIDkzMy4yMTc5MDIgNDQ2LjE0MzA4MyA5MzMuMjE3OTAyIDkwOS43MzQ1NnpNMjY2Ljk0ODM1MyA2NDUuNzQ0MDc0YzM2Ljg1MjMyNiAwIDY2LjcwNzI4NC0yOS45MTk0MjcgNjYuNzA3Mjg0LTY2LjgzNjIyMSAwLTM2Ljg5NzM1Mi0yOS44NTQ5NTgtNjYuODE1NzU1LTY2LjcwNzI4NC02Ni44MTU3NTUtMzYuODI5ODEzIDAtNjYuNzA3Mjg0IDI5LjkxOTQyNy02Ni43MDcyODQgNjYuODE1NzU1QzIwMC4yNDEwNjkgNjE1LjgyNDY0NyAyMzAuMTE3NTE2IDY0NS43NDQwNzQgMjY2Ljk0ODM1MyA2NDUuNzQ0MDc0ek01MTEuMjIyNzk5IDY0NS43NDQwNzRjMzYuODMwODM3IDAgNjYuNzA3Mjg0LTI5LjkxOTQyNyA2Ni43MDcyODQtNjYuODM2MjIxIDAtMzYuODk3MzUyLTI5Ljg3NTQyNC02Ni44MTU3NTUtNjYuNzA3Mjg0LTY2LjgxNTc1NS0zNi44NTIzMjYgMC02Ni43MDcyODQgMjkuOTE5NDI3LTY2LjcwNzI4NCA2Ni44MTU3NTVDNDQ0LjUxNTUxNCA2MTUuODI0NjQ3IDQ3NC4zNzA0NzMgNjQ1Ljc0NDA3NCA1MTEuMjIyNzk5IDY0NS43NDQwNzR6TTI2NS43NTcyMjUgODkwLjEwNTVjMzYuODUyMzI2IDAgNjYuNzA2MjYxLTI5LjkxOTQyNyA2Ni43MDYyNjEtNjYuODE1NzU1IDAtMzYuOTE3ODE4LTI5Ljg1MzkzNS02Ni44MzcyNDQtNjYuNzA2MjYxLTY2LjgzNzI0NC0zNi44MzA4MzcgMC02Ni43MDcyODQgMjkuOTE5NDI3LTY2LjcwNzI4NCA2Ni44MzcyNDRDMTk5LjA0OTk0IDg2MC4xODYwNzQgMjI4LjkyNTM2NSA4OTAuMTA1NSAyNjUuNzU3MjI1IDg5MC4xMDU1ek01MTEuMjIyNzk5IDg5MC4xMDU1YzM2LjgzMDgzNyAwIDY2LjcwNzI4NC0yOS45MTk0MjcgNjYuNzA3Mjg0LTY2LjgxNTc1NSAwLTM2LjkxNzgxOC0yOS44NzU0MjQtNjYuODM3MjQ0LTY2LjcwNzI4NC02Ni44MzcyNDQtMzYuODUyMzI2IDAtNjYuNzA3Mjg0IDI5LjkxOTQyNy02Ni43MDcyODQgNjYuODM3MjQ0QzQ0NC41MTU1MTQgODYwLjE4NjA3NCA0NzQuMzcwNDczIDg5MC4xMDU1IDUxMS4yMjI3OTkgODkwLjEwNTV6TTc1NS4xNTAzNDQgNjQ1Ljc0NDA3NGMzNi44MzE4NiAwIDY2LjcwODMwOC0yOS45MTk0MjcgNjYuNzA4MzA4LTY2LjgzNjIyMSAwLTM2Ljg5NzM1Mi0yOS44NzY0NDgtNjYuODE1NzU1LTY2LjcwODMwOC02Ni44MTU3NTUtMzYuODUyMzI2IDAtNjYuNzA3Mjg0IDI5LjkxOTQyNy02Ni43MDcyODQgNjYuODE1NzU1QzY4OC40NDQwODMgNjE1LjgyNDY0NyA3MTguMjk4MDE4IDY0NS43NDQwNzQgNzU1LjE1MDM0NCA2NDUuNzQ0MDc0ek0zMTEuNTEzMzM4IDI5MC41MDAyNTdjMjQuMjY0NjM3IDAgNDUuMzQ1NzY4LTE5LjY5MzUyOCA0NS4zNDU3NjgtNDQuMDAyMTY3TDM1Ni44NTkxMDYgNDYuNTI4NzFjMC0yNC4zMDg2MzktMjEuMDgwMTA4LTQ0LjAyMzY1Ni00NS4zNDU3NjgtNDQuMDIzNjU2LTI0LjI4NTEwMyAwLTQzLjk1OTE4OCAxOS43MTUwMTctNDMuOTU5MTg4IDQ0LjAyMzY1NmwwIDE5OS45NjkzODFDMjY3LjU1NDE1IDI3MC44MDY3MjkgMjg3LjIyODIzNSAyOTAuNTAwMjU3IDMxMS41MTMzMzggMjkwLjUwMDI1N3oiLz48L3N2Zz4K") center/contain no-repeat;mask:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik03MTAuODQ1Mjc5IDI5MC41MDAyNTdjMjQuMjY1NjYgMCA0NS4zNDU3NjgtMTkuNjkzNTI4IDQ1LjM0NTc2OC00NC4wMDIxNjdMNzU2LjE5MTA0NiA0Ni41Mjg3MWMwLTI0LjMwODYzOS0yMS4wODExMzEtNDQuMDIzNjU2LTQ1LjM0NTc2OC00NC4wMjM2NTYtMjQuMjg2MTI2IDAtNDMuOTU4MTY0IDE5LjcxNTAxNy00My45NTgxNjQgNDQuMDIzNjU2bDAgMTk5Ljk2OTM4MUM2NjYuODg3MTE1IDI3MC44MDY3MjkgNjg2LjU1OTE1MyAyOTAuNTAwMjU3IDcxMC44NDUyNzkgMjkwLjUwMDI1N3pNNjIzLjA3OTM3NiAxMTMuMzQzNDQxIDQwMC41MTQzNzEgMTEzLjM0MzQ0MWwwIDY2LjQ2ODg1NCAyMjIuNTY1MDA1IDBMNjIzLjA3OTM3NiAxMTMuMzQzNDQxek04ODMuNDc0OTg4IDExMy4zNDM0NDFsLTgyLjcxNzkzMyAwIDAgNjYuMTAwNDY0IDg1Ljg4MTk5NiAwYzI1LjI2MTMzNyAwIDQ2LjU3OTg3NSAyMS4zNjE1MTcgNDYuNTc5ODc1IDQ2LjY0NTM2NmwwIDE1My44MjMzODhMOTAuMzk4MzU4IDM3OS45MTI2NTlsMC0xNTMuODIzMzg4YzAtMjUuMjgyODI2IDIxLjMxODUzOC00Ni42NDUzNjYgNDYuNTc5ODc1LTQ2LjY0NTM2Nmw4Ni40NDQ4MTQgMEwyMjMuNDIzMDQ3IDExMy4zNDM0NDFsLTgyLjU4Njk1IDBjLTY0LjA0MjU5NSAwLTExNi40Mjg3MDkgNTIuNDczMDk1LTExNi40Mjg3MDkgMTE2LjYyNDE2MWwwIDY3Ni4zNDI5NzVjMCA2NC4xMzA1OTkgNTAuNDU3MTgyIDExNi42MDE2NDggMTE0LjQ5OTc3NyAxMTYuNjAxNjQ4TDg4My40NzQ5ODggMTAyMi45MTIyMjZjNjQuMDE5MDU5IDAgMTE2LjQyNzY4Ni01Mi40NzEwNDkgMTE2LjQyNzY4Ni0xMTYuNjAxNjQ4TDk5OS45MDI2NzQgMjI5Ljk2NzYwMkM5OTkuOTAyNjc0IDE2NS44MTY1MzYgOTQ3LjQ5MzAyNCAxMTMuMzQzNDQxIDg4My40NzQ5ODggMTEzLjM0MzQ0MXpNOTMzLjIxNzkwMiA5MDkuNzM0NTZjMCAyNS4yODI4MjYtMjEuMzE4NTM4IDQ2LjY0NDM0My00Ni41Nzk4NzUgNDYuNjQ0MzQzTDEzNi45NzgyMzMgOTU2LjM3ODkwM2MtMjUuMjYxMzM3IDAtNDYuNTc5ODc1LTIxLjM2MTUxNy00Ni41Nzk4NzUtNDYuNjQ0MzQzTDkwLjM5ODM1OCA0NDYuMTQzMDgzIDkzMy4yMTc5MDIgNDQ2LjE0MzA4MyA5MzMuMjE3OTAyIDkwOS43MzQ1NnpNMjY2Ljk0ODM1MyA2NDUuNzQ0MDc0YzM2Ljg1MjMyNiAwIDY2LjcwNzI4NC0yOS45MTk0MjcgNjYuNzA3Mjg0LTY2LjgzNjIyMSAwLTM2Ljg5NzM1Mi0yOS44NTQ5NTgtNjYuODE1NzU1LTY2LjcwNzI4NC02Ni44MTU3NTUtMzYuODI5ODEzIDAtNjYuNzA3Mjg0IDI5LjkxOTQyNy02Ni43MDcyODQgNjYuODE1NzU1QzIwMC4yNDEwNjkgNjE1LjgyNDY0NyAyMzAuMTE3NTE2IDY0NS43NDQwNzQgMjY2Ljk0ODM1MyA2NDUuNzQ0MDc0ek01MTEuMjIyNzk5IDY0NS43NDQwNzRjMzYuODMwODM3IDAgNjYuNzA3Mjg0LTI5LjkxOTQyNyA2Ni43MDcyODQtNjYuODM2MjIxIDAtMzYuODk3MzUyLTI5Ljg3NTQyNC02Ni44MTU3NTUtNjYuNzA3Mjg0LTY2LjgxNTc1NS0zNi44NTIzMjYgMC02Ni43MDcyODQgMjkuOTE5NDI3LTY2LjcwNzI4NCA2Ni44MTU3NTVDNDQ0LjUxNTUxNCA2MTUuODI0NjQ3IDQ3NC4zNzA0NzMgNjQ1Ljc0NDA3NCA1MTEuMjIyNzk5IDY0NS43NDQwNzR6TTI2NS43NTcyMjUgODkwLjEwNTVjMzYuODUyMzI2IDAgNjYuNzA2MjYxLTI5LjkxOTQyNyA2Ni43MDYyNjEtNjYuODE1NzU1IDAtMzYuOTE3ODE4LTI5Ljg1MzkzNS02Ni44MzcyNDQtNjYuNzA2MjYxLTY2LjgzNzI0NC0zNi44MzA4MzcgMC02Ni43MDcyODQgMjkuOTE5NDI3LTY2LjcwNzI4NCA2Ni44MzcyNDRDMTk5LjA0OTk0IDg2MC4xODYwNzQgMjI4LjkyNTM2NSA4OTAuMTA1NSAyNjUuNzU3MjI1IDg5MC4xMDU1ek01MTEuMjIyNzk5IDg5MC4xMDU1YzM2LjgzMDgzNyAwIDY2LjcwNzI4NC0yOS45MTk0MjcgNjYuNzA3Mjg0LTY2LjgxNTc1NSAwLTM2LjkxNzgxOC0yOS44NzU0MjQtNjYuODM3MjQ0LTY2LjcwNzI4NC02Ni44MzcyNDQtMzYuODUyMzI2IDAtNjYuNzA3Mjg0IDI5LjkxOTQyNy02Ni43MDcyODQgNjYuODM3MjQ0QzQ0NC41MTU1MTQgODYwLjE4NjA3NCA0NzQuMzcwNDczIDg5MC4xMDU1IDUxMS4yMjI3OTkgODkwLjEwNTV6TTc1NS4xNTAzNDQgNjQ1Ljc0NDA3NGMzNi44MzE4NiAwIDY2LjcwODMwOC0yOS45MTk0MjcgNjYuNzA4MzA4LTY2LjgzNjIyMSAwLTM2Ljg5NzM1Mi0yOS44NzY0NDgtNjYuODE1NzU1LTY2LjcwODMwOC02Ni44MTU3NTUtMzYuODUyMzI2IDAtNjYuNzA3Mjg0IDI5LjkxOTQyNy02Ni43MDcyODQgNjYuODE1NzU1QzY4OC40NDQwODMgNjE1LjgyNDY0NyA3MTguMjk4MDE4IDY0NS43NDQwNzQgNzU1LjE1MDM0NCA2NDUuNzQ0MDc0ek0zMTEuNTEzMzM4IDI5MC41MDAyNTdjMjQuMjY0NjM3IDAgNDUuMzQ1NzY4LTE5LjY5MzUyOCA0NS4zNDU3NjgtNDQuMDAyMTY3TDM1Ni44NTkxMDYgNDYuNTI4NzFjMC0yNC4zMDg2MzktMjEuMDgwMTA4LTQ0LjAyMzY1Ni00NS4zNDU3NjgtNDQuMDIzNjU2LTI0LjI4NTEwMyAwLTQzLjk1OTE4OCAxOS43MTUwMTctNDMuOTU5MTg4IDQ0LjAyMzY1NmwwIDE5OS45NjkzODFDMjY3LjU1NDE1IDI3MC44MDY3MjkgMjg3LjIyODIzNSAyOTAuNTAwMjU3IDMxMS41MTMzMzggMjkwLjUwMDI1N3oiLz48L3N2Zz4K") center/contain no-repeat}
+
+/* 日期分隔 */
+.fd{width:1px;height:20px;margin:auto 8px}
+
+/* ── 日历面板 ── */
+.cal{display:none;position:absolute;z-index:100;border-radius:6px;padding:10px;width:210px}
+.cal.on{display:block}
+.cal-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.cal-hd button{background:none;border:none;cursor:pointer;font-size:14px;padding:2px 8px;line-height:1}
+.cal-hd span{font-size:13px;font-weight:600}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-grid div{text-align:center;padding:5px 0;font-size:12px;cursor:pointer;border-radius:3px}
+.cal-grid div.dim{cursor:default}
+.cal-grid div.today{border:1px solid}
+.cal-grid div.wk{font-size:10px;cursor:default}
+
+/* ── 余额显示 ── */
+.bal{display:inline-flex;align-items:center;gap:4px;font-size:13px;margin-left:16px;white-space:nowrap}
+.bal-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.bal-amt{font-weight:500}
+
+/* ── 设置面板 ── */
+.set-shade{position:fixed;inset:0;z-index:400}
+.set-panel{position:fixed;top:0;right:0;bottom:0;width:420px;z-index:401;display:flex;flex-direction:column}
+.set-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-size:14px;font-weight:600}
+.set-body{padding:16px;overflow-y:auto;flex:1}
+.set-row{margin-bottom:20px}
+.set-row label{display:block;font-size:12px;margin-bottom:6px}
+.set-inp{width:100%;padding:6px 8px;border-radius:4px;font-size:13px;font-family:inherit;outline:none;box-sizing:border-box}
+.set-sec{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--divider)}
+.set-sec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.set-sec-title{font-size:13px;font-weight:600;margin-bottom:14px}
+.set-prov-list{display:flex;flex-direction:column;gap:12px}
+.set-prov-row{display:flex;align-items:center;gap:10px}
+.set-prov-orig{font-size:12px;color:var(--text-secondary);min-width:100px;flex-shrink:0}
+.set-prov-inp{flex:1;padding:6px 8px;border-radius:4px;font-size:13px;font-family:inherit;outline:none;width:100%;box-sizing:border-box;border:1px solid var(--divider);background:var(--bg);color:var(--text-primary)}
+
+/* ── 加载 ── */
+.ld{text-align:center;padding:40px;font-size:14px}
+
+@media(max-width:768px){.d2{grid-template-columns:1fr}}
+
+/* ── 下拉框固定宽度 + 截断 ── */
+#sa,#sp,#sm,#stype{width:130px}
+.cs-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.cs-list{min-width:100%;width:auto;white-space:nowrap}
+
+/* ── 下拉固定宽度 + 截断 ── */
+#sa,#sp,#sm,#stype{width:130px}
+.cs-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.cs-list{min-width:100%;width:auto;white-space:nowrap}

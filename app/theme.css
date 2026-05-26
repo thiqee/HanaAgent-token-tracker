@@ -1,0 +1,264 @@
+/* ===== theme.css — 配色与主题 ===== */
+
+/* ── 主题变量 ── */
+:root {
+  --grain-dark: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22200%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.72%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220%200%200%200%200%20%200%200%200%200%200%20%200%200%200%200%200%20%200%200%200%200.12%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23n)%22%2F%3E%3C%2Fsvg%3E");
+  --grain-light: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22200%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.72%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220%200%200%200%201%20%200%200%200%200%201%20%200%200%200%200%201%20%200%200%200%200.12%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23n)%22%2F%3E%3C%2Fsvg%3E");
+}
+
+:root, [data-theme="light"] {
+  --bg: #fdfaf3;
+  --text-primary: #434343;
+  --text-secondary: #7a7a7a;
+  --text-muted: #aaaaaa;
+  --accent: #434343;
+  --divider: #e8e5de;
+  --chart-text: rgba(67,67,67,.65);
+  --chart-grid: rgba(67,67,67,.06);
+  --chart-bar-chat: #434343;
+  --chart-bar-channel: #eab308;
+  --chart-doughnut-colors: #434343, #EAB308, #22C55E, #3B82F6, #F97316, #A855F7, #06B6D4, #EC4899;
+  --chart-agent-colors: #434343, #EAB308, #22C55E, #3B82F6, #F97316;
+  --chart-hit-rate: #22C55E;
+  --grain-bg: var(--grain-dark);
+  --grain-blend: multiply;
+}
+
+[data-theme="dark"] {
+  --bg: #1a1a1a;
+  --text-primary: #c8c8c8;
+  --text-secondary: #909090;
+  --text-muted: #707070;
+  --accent: #c8c8c8;
+  --divider: #2a2a2a;
+  --chart-text: rgba(200,200,200,.65);
+  --chart-grid: rgba(200,200,200,.06);
+  --chart-bar-chat: #c8c8c8;
+  --chart-hit-rate: #22C55E;
+  --grain-bg: var(--grain-light);
+  --grain-blend: screen;
+}
+
+/* ── 护眼-暖黄 ── */
+[data-theme="护眼-暖黄"] {
+  --bg: #F5E6D3;
+  --text-primary: #3E3A39;
+  --text-secondary: #7A6F6A;
+  --text-muted: #B0A59E;
+  --accent: #3E3A39;
+  --divider: #E8E0D2;
+  --chart-text: rgba(62,58,57,.65);
+  --chart-grid: rgba(62,58,57,.06);
+  --chart-bar-chat: #3E3A39;
+  --chart-bar-channel: #EAB308;
+  --chart-doughnut-colors: #3E3A39, #EAB308, #22C55E, #3B82F6, #F97316, #A855F7, #06B6D4, #EC4899;
+  --chart-agent-colors: #3E3A39, #EAB308, #22C55E, #3B82F6, #F97316;
+  --chart-hit-rate: #22C55E;
+  --grain-bg: var(--grain-dark);
+  --grain-blend: multiply;
+}
+
+/* ── 护眼-深色 ── */
+[data-theme="护眼-深色"] {
+  --bg: #2B2B2B;
+  --text-primary: #A9B7C6;
+  --text-secondary: #8A949E;
+  --text-muted: #6A747E;
+  --accent: #A9B7C6;
+  --divider: #3A3A3A;
+  --chart-text: rgba(169,183,198,.65);
+  --chart-grid: rgba(169,183,198,.06);
+  --chart-bar-chat: #A9B7C6;
+  --chart-bar-channel: #EAB308;
+  --chart-doughnut-colors: #A9B7C6, #EAB308, #22C55E, #3B82F6, #F97316, #A855F7, #06B6D4, #EC4899;
+  --chart-agent-colors: #A9B7C6, #EAB308, #22C55E, #3B82F6, #F97316;
+  --chart-hit-rate: #22C55E;
+  --grain-bg: var(--grain-light);
+  --grain-blend: screen;
+}
+
+/* ── 护眼-灰阶 ── */
+[data-theme="护眼-灰阶"] {
+  --bg: #E8E8E8;
+  --text-primary: #4A4A4A;
+  --text-secondary: #808080;
+  --text-muted: #B0B0B0;
+  --accent: #4A4A4A;
+  --divider: #D8D8D8;
+  --chart-text: rgba(74,74,74,.65);
+  --chart-grid: rgba(74,74,74,.06);
+  --chart-bar-chat: #4A4A4A;
+  --chart-bar-channel: #6A6A6A;
+  --chart-doughnut-colors: #4A4A4A, #6A6A6A, #7A7A7A, #8A8A8A, #5A5A5A, #909090, #707070, #858585;
+  --chart-agent-colors: #4A4A4A, #6A6A6A, #7A7A7A, #8A8A8A, #5A5A5A;
+  --chart-hit-rate: #6A6A6A;
+  --grain-bg: var(--grain-dark);
+  --grain-blend: multiply;
+}
+
+/* ── 护眼-绿豆 ── */
+[data-theme="护眼-绿豆"] {
+  --bg: #C7EDCC;
+  --text-primary: #1A2F1D;
+  --text-secondary: #4A6B4F;
+  --text-muted: #8AAB8F;
+  --accent: #1A2F1D;
+  --divider: #B0D4B5;
+  --chart-text: rgba(26,47,29,.65);
+  --chart-grid: rgba(26,47,29,.06);
+  --chart-bar-chat: #1A2F1D;
+  --chart-bar-channel: #EAB308;
+  --chart-doughnut-colors: #1A2F1D, #EAB308, #22C55E, #3B82F6, #F97316, #A855F7, #06B6D4, #EC4899;
+  --chart-agent-colors: #1A2F1D, #EAB308, #22C55E, #3B82F6, #F97316;
+  --chart-hit-rate: #22C55E;
+  --grain-bg: var(--grain-dark);
+  --grain-blend: multiply;
+}
+
+/* ── 护眼-琥珀 ── */
+[data-theme="护眼-琥珀"] {
+  --bg: #1C1510;
+  --text-primary: #D4B896;
+  --text-secondary: #9C8A78;
+  --text-muted: #6A5A4A;
+  --accent: #D4B896;
+  --divider: #2E2218;
+  --chart-text: rgba(212,184,150,.65);
+  --chart-grid: rgba(212,184,150,.06);
+  --chart-bar-chat: #D4B896;
+  --chart-bar-channel: #E8A838;
+  --chart-doughnut-colors: #D4B896, #E8A838, #22C55E, #6B9BD2, #C97D45, #A885D7, #55A5A5, #C86080;
+  --chart-agent-colors: #D4B896, #E8A838, #22C55E, #6B9BD2, #C97D45;
+  --chart-hit-rate: #22C55E;
+  --grain-bg: var(--grain-light);
+  --grain-blend: screen;
+}
+
+/* ── 页面底色 ── */
+body{background:var(--bg);color:var(--text-primary);transition:background .3s,color .3s}
+
+/* ── 头部 ── */
+.hdr{border-bottom:1px solid var(--divider)}
+.hdr h1{color:var(--text-primary)}
+.rt{color:var(--text-primary)}
+
+/* ── 按钮 ── */
+.btn{border:1px solid var(--text-primary);color:var(--text-primary);background:none;transition:color .2s,border-color .2s}
+.btn:hover{color:var(--accent);border-color:var(--accent)}
+.btn:active{color:var(--accent)}
+
+/* ── 筛选栏 ── */
+.flt::after{background:var(--divider)}
+
+/* ── 筛选按钮 ── */
+.fb{color:var(--text-secondary);transition:color .2s}
+.fb:hover{color:var(--text-primary)}
+.fb.act{color:var(--text-primary);font-weight:700}
+
+/* ── 指标卡片 ── */
+.cd{border:1px solid var(--text-primary)}
+.cd .cl{color:var(--text-secondary)}
+.cd .cv{color:var(--text-primary)}
+
+/* ── 图表容器 ── */
+.cx{border:1px solid var(--text-primary)}
+.ct{color:var(--text-primary)}
+
+/* ── 对话列表 ── */
+.cv-empty{color:var(--text-muted)}
+.cv-it{border-bottom:1px solid var(--divider);transition:background .1s}
+.cv-it:hover{background:var(--divider)}
+.cv-qt{color:var(--text-primary)}
+.cv-meta{color:var(--text-secondary)}
+.cv-tb{color:var(--chart-bar-channel)}
+
+/* ── 弹窗 ── */
+.modal-bg{background:rgba(0,0,0,.4)}
+.modal-box{background:var(--bg);border:1px solid var(--text-primary);box-shadow:0 8px 32px rgba(0,0,0,.25)}
+.modal-hdr{border-bottom:1px solid var(--divider)}
+.modal-tit{color:var(--text-primary)}
+.cv-dt-hdr{color:var(--text-secondary)}
+.cv-dt-user{background:var(--divider);color:var(--text-primary)}
+.cv-pre{background:var(--divider);color:var(--text-primary)}
+.cv-dt-sum{color:var(--text-secondary)}
+
+/* ── 日历面板 ── */
+.cal{background:var(--bg);border:1px solid var(--text-primary);box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.cal-hd button{color:var(--text-primary)}
+.cal-hd button:hover{color:var(--accent)}
+.cal-hd span{color:var(--text-primary)}
+.cal-grid div{color:var(--text-primary)}
+.cal-grid div:hover{background:var(--divider)}
+.cal-grid div.dim{color:var(--text-muted)}
+.cal-grid div.dim:hover{background:none}
+.cal-grid div.today{border-color:var(--accent)}
+.cal-grid div.wk{color:var(--text-muted)}
+.cal-grid div.wk:hover{background:none}
+
+/* ── 自定义下拉 ── */
+.cs{border:1px solid var(--text-primary);color:var(--text-primary);transition:border-color .2s}
+.cs:hover{border-color:var(--text-secondary)}
+.cs-arw{color:var(--text-secondary)}
+.cs-list{background:var(--bg);border:1px solid var(--text-primary);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.cs-opt{color:var(--text-primary);transition:background .1s}
+.cs-opt:hover{background:var(--divider)}
+.cs-opt.sel{color:var(--accent)}
+
+/* ── 日期输入 ── */
+.fi{background:none;border:1px solid var(--text-primary);color:var(--text-primary);transition:border-color .2s}
+.fi:hover{border-color:var(--text-secondary)}
+.fi-wrap::after{background:var(--text-primary)}
+.fd{background:var(--divider)}
+
+/* ── 余额显示 ── */
+.bal{color:var(--text-primary)}
+.bal-amt{color:var(--text-primary)}
+
+/* ── 设置面板 ── */
+.set-shade{background:rgba(0,0,0,.3)}
+.set-panel{background:var(--bg);box-shadow:-4px 0 16px rgba(0,0,0,.15)}
+.set-hdr{border-bottom:1px solid var(--divider);color:var(--text-primary)}
+.set-row label{color:var(--text-secondary)}
+.set-inp{border:1px solid var(--text-primary);color:var(--text-primary);background:none;transition:border-color .2s}
+.set-inp:focus{border-color:var(--accent)}
+
+/* ── 加载 ── */
+.ld{color:var(--text-secondary)}
+
+/* ── 颗粒纹理 ── */
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;background-image:var(--grain-bg);background-size:200px 200px;mix-blend-mode:var(--grain-blend)}
+
+/* ── 对话步骤气泡 ── */
+.cv-step{margin-bottom:10px;padding:10px 12px;border-radius:6px;max-height:200px;overflow-y:auto;font-size:13px;line-height:1.5;border:1px solid var(--divider);background:var(--bg)}
+.cv-step-label{font-size:10px;font-weight:600;margin-bottom:6px;letter-spacing:.4px}
+.cv-step-cnt{white-space:pre-wrap;word-break:break-word;font-size:13px;line-height:1.5}
+.cv-step-code{font-size:11px;margin:6px 0 0;padding:6px;border-radius:3px;background:var(--divider);overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+.cv-step-th{border-left:3px solid #eab308}
+.cv-step-th .cv-step-label{color:#eab308}
+.cv-step-tc{border-left:3px solid #3b82f6}
+.cv-step-tc .cv-step-label{color:#3b82f6}
+.cv-step-fm{border-left:3px solid #22c55e}
+.cv-step-fm .cv-step-label{color:#22c55e}
+.cv-step-tx{border-left:3px solid var(--text-primary)}
+.cv-step-tx .cv-step-label{color:var(--text-secondary)}
+
+/* ── 自定义滚动条 ── */
+html::-webkit-scrollbar{width:6px}
+html::-webkit-scrollbar-track{background:transparent}
+html::-webkit-scrollbar-thumb{background:var(--text-muted);border-radius:3px}
+html::-webkit-scrollbar-thumb:hover{background:var(--text-secondary)}
+
+.cv-list::-webkit-scrollbar{width:6px}
+.cv-list::-webkit-scrollbar-track{background:transparent}
+.cv-list::-webkit-scrollbar-thumb{background:var(--text-muted);border-radius:3px}
+.cv-list::-webkit-scrollbar-thumb:hover{background:var(--text-secondary)}
+
+.modal-body::-webkit-scrollbar{width:6px}
+.modal-body::-webkit-scrollbar-track{background:transparent}
+.modal-body::-webkit-scrollbar-thumb{background:var(--text-muted);border-radius:3px}
+.modal-body::-webkit-scrollbar-thumb:hover{background:var(--text-secondary)}
+
+.cv-step::-webkit-scrollbar{width:5px}
+.cv-step::-webkit-scrollbar-track{background:transparent}
+.cv-step::-webkit-scrollbar-thumb{background:var(--text-muted);border-radius:3px}
+.cv-step::-webkit-scrollbar-thumb:hover{background:var(--text-secondary)}
