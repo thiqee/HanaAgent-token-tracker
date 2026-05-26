@@ -1,2 +1,12 @@
-# HanaAgent-token-tracker
-HanaAgent的token用量监控插件。支持多维度组合筛选
+  # Token 用量
+
+  展示 HanaAgent 的 Token 消耗统计,支持按时间、Agent、供应商、模型组合筛选。
+
+  ## 功能
+
+  - 支持按时间、Agent、供应商、模型、会话类型（聊天，频道）组合筛选
+  - 自定义供应商名称
+  - 每日趋势图+模型占比+agent占比
+  - 对话流水查看
+  - 高消耗对话标记
+  - 显示DeepSeek余额
